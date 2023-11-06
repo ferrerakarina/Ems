@@ -14,7 +14,7 @@ def index():
 def enviar():
     remitente_email = request.form['remitente_email']
     remitente_contrasena = request.form['remitente_contrasena']
-    destinatarios = request.form['destinatarios']
+    destinatarios = request.form['destinatarios'].replace(" ", "")
     lista_destinatarios = destinatarios.split(',')
 
     asunto = request.form['asunto']
@@ -46,4 +46,4 @@ def enviar():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0')
